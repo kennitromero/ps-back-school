@@ -135,3 +135,21 @@ Esta API tendrá las siguientes funcionalidades
 
 
 ## Tareas realizadas para este proyecto.
+- Creación de base de datos
+  - Tabla estudiantes, Abner
+  - Tabla grados, Cristian
+  - Tabla generaciones, Keily
+  - Tabla grados con estudiantes, Esteban
+  - Tabla asignaturas, Kevin
+  - Tabla grados y asignaturas, Jose
+  - Tabla actividades, Samuel
+- Creación de Seeders
+  - Seeder de 10 estudiantes, Abner
+  - Seeder de 20 asignaturas, Kevin
+  - Seeder de la tabla grados, Cristian
+  - Seeder de la tabla generación, Keily
+  - Seeder de actividades, Samuel
+
+## Convenciones
+- Nombre de la base datos: school
+- Todas las tablas serán snake_case, ej: grades_subjects
