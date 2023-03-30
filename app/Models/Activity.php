@@ -11,15 +11,10 @@ class Activity extends Model
 
     private $filleable = [
         'grade_subject_id',
-        'generation_id',
+        'name',
         'percentage',
         'end_date'
     ];
-
-    public function generation()
-    { 
-        return $this->belongsTo(Generation::class, 'generation_id');
-    }
 
     public function gradeSubject()
     { 

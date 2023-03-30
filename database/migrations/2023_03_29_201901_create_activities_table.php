@@ -12,9 +12,8 @@ return new class extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('grade_subject_id');
-            $table->unsignedBigInteger('generation_id');
             $table->foreign('grade_subject_id')->references('id')->on('grades_subjects');
-            $table->foreign('generation_id')->references('id')->on('generations');
+            $table->string('name');
             $table->integer('percentage');
             $table->date('end_date');
             $table->timestamps();
