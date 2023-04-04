@@ -17,3 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/1.0/activities', [
+    activitiesController::class, 'index'
+]);
+Route::get('/1.0/activities/{activitiesId}', [
+    activitiesController::class, 'show'
+]);
+Route::post('/1.0/activities', [
+    activitiesController::class, 'create'
+]);
+Route::put('/1.0/activities/{activitiesId}', [
+    activitiesController::class, 'update'
+]);
+Route::delete('/1.0/activities/{activitiesId}', [
+    activitiesController::class, 'delete'
+]);

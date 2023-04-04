@@ -171,3 +171,57 @@ Esta API tendrá las siguientes funcionalidades
   - Crear la ruta, el controlador y la lógica respectiva
   - Agregarle validaciones respectivas según corresponda
   - Agregar pruebas end-to-end
+
+
+
+## Contratos
+
+### Creacion de actividades
+
+- Creación y de actividades
+```json
+{
+  "request": {
+    "grade_subject_id": 6,
+    "percentage": 30,
+    "name": "Quiz",
+    "end-date":"2023-04-30"
+  },
+  "response:": {
+    "200": {
+      "data":{
+        "id": 6,
+        "names": "Quiz",
+        "grade_subect_id": 6,
+        "porcentage": 30,
+        "end_date": 2023-04-30,
+      },
+      "400": {
+        "error": {
+        "code": "CODE_FORM_ERROR",
+        "title": "document",
+        "detail": "El documento debe ser numérico"
+              }
+        
+      }  
+      
+    }
+  }
+}
+
+// Crear el objeto de respuesta
+$response = array(
+    "status" => "error",
+    "message" => "Los parámetros de la solicitud son incorrectos o faltan.",
+    "data" => null
+);
+
+// Convertir el objeto de respuesta a formato JSON
+$json_response = json_encode($response);
+
+// Establecer la cabecera de la respuesta con el código HTTP 400 Bad Request
+http_response_code(400);
+header('Content-Type: application/json');
+
+// Enviar la respuesta al cliente
+echo $json_response;
