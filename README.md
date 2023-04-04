@@ -22,135 +22,170 @@ Esta API tendrá las siguientes funcionalidades
 - Gestión de actividades a las respectivas asignaturas
 - Registro de calificaciones
 
-## Contratos
+# Contratos
 
-### Gestión de estudiantes
+## Gestión de estudiantes
 
-- Creación y actualización de estudiante
+### Creación y actualización de estudiante
+
+Request
 ```json
 {
-  "request": {
     "document": "10653211",
     "names": "Annie",
     "lastnames": "Ruz Estrada"
-  },
-  "response:": {
-    "200": {
-      "data":{
-          "id": 1,
-          "names": "Annie",
-          "lastnames": "Ruz Estrada"
-        }
-    },
-    "422": [
-      {
-        "error": {
-          "code": "CODE_FORM_ERROR",
-          "title": "document",
-          "detail": "El documento debe ser numérico"
-        }
-      },
-      {
-        "error": {
-          "code": "CODE_FORM_ERROR",
-          "title": "document",
-          "detail": "El documento es obligatorio"
-        }
-      },
-      {
-        "error": {
-          "code": "CODE_FORM_ERROR",
-          "title": "names",
-          "detail": "El nombre es obligatorio"
-        }
-      },
-      {
-        "error": {
-          "code": "CODE_FORM_ERROR",
-          "title": "last_names",
-          "detail": "El apellido es obligatorio"
-        }
-      }
-    ],
-    "400": [
-      {
-        "error": {
-          "code": "CODE_DOCUMENT_USED",
-          "title": "Documento ya registrado",
-          "detail": "Ya existe un estudiante registrado con ese documento"
-        }
-      }
-    ],
-    "500": {
-      "error": {
+}
+```
+
+Response HTTP 200
+```json
+{
+    "data": {
+        "id": 1,
+        "names": "Annie",
+        "lastnames": "Ruz Estrada"
+    }
+}
+```
+
+Response 422 (no se puede procesar la petición)
+```json
+{
+    "error": {
+        "code": "CODE_FORM_ERROR",
+        "title": "document",
+        "detail": "El documento debe ser numérico"
+    }
+}
+```
+```json
+{
+    "error": {
+        "code": "CODE_FORM_ERROR",
+        "title": "document",
+        "detail": "El documento es obligatorio"
+    }
+}
+```
+```json
+{
+    "error": {
+        "code": "CODE_FORM_ERROR",
+        "title": "names",
+        "detail": "El nombre es obligatorio"
+    }
+}
+```
+```json
+{
+    "error": {
+        "code": "CODE_FORM_ERROR",
+        "title": "last_names",
+        "detail": "El apellido es obligatorio"
+    }
+}
+```
+
+Response 500 (error en el servidor)
+```json
+{
+    "error": {
         "code": "GENERAL_ERROR",
         "title": "Ocurrió un error",
         "detail": "Estamos trabajando para solucionarlo."
-      }
     }
-  }
 }
 ```
-- Obtener estudiantes
+
+### Obtener estudiantes
+
+No hay request
 
 ```json
 {
-  "request": {},
-  "response:": {
-    "200": {
-      "data": [
+}
+```
+
+Respuesta 200
+```json
+{
+    "data": [
         {
-          "id": 1, 
-          "document": "63848266",
-          "names": "Annie",
-          "last_names": "Ruz Estrada"
+            "id": 1,
+            "document": "63848266",
+            "names": "Annie",
+            "last_names": "Ruz Estrada"
         },
         {
-          "id": 2,
-          "document": "63848266",
-          "names": "Juan",
-          "last_names": "Pérez Rodríguez"
+            "id": 2,
+            "document": "63848266",
+            "names": "Juan",
+            "last_names": "Pérez Rodríguez"
         }
-      ]
-    },
-    "400": [
-      {
-        "error": {
-          "code": "CODE_THERE_ARE_NO_STUDENTS",
-          "title": "No hay estudiantes",
-          "detail": "No se han registrado estudiantes"
-        }
-      }
-    ],
-    "500": {
-      "error": {
-        "code": "CODE_GENERAL_ERROR",
-        "title": "Ocurrió un error",
-        "detail": "Estamos trabajando para solucionarlo."
-      }
-    }
+    ]
+}
+```
+
+Respuesta 400 (no hay estudiantes)
+
+```json
+{
+  "error": {
+    "code": "CODE_THERE_ARE_NO_STUDENTS",
+    "title": "No hay estudiantes",
+    "detail": "No se han registrado estudiantes"
   }
 }
 ```
 
-### Creacion de materia.
-
-- Creación de materia.
 ```json
-
-        $Subject = Subject::create([
-            'name' => $request->input('name'),
-  },
-  "response:": {
-    "200": {
-      "data":{
-          "id": "",
-          "names": "",
-      }
+{
+    "error": {
+        "code": "GENERAL_ERROR",
+        "title": "Ocurrió un error",
+        "detail": "Estamos trabajando para solucionarlo."
     }
-  }
-  
+}
+```
 
+## Creación de materia.
+
+### Creación de materia.
+
+Request 
+```json
+{
+    "name": "Matemáticas"
+}
+```
+
+Response 200
+```json
+{
+    "id": 12,
+    "name": "Matemáticas"
+}
+```
+
+Response 422
+```json
+{
+    "error": {
+        "code": "CODE_FORM_ERROR",
+        "title": "name",
+        "detail": "El nombre es obligatorio"
+    }
+}
+```
+```json
+{
+    "error": {
+        "code": "GENERAL_ERROR",
+        "title": "Ocurrió un error",
+        "detail": "Estamos trabajando para solucionarlo."
+    }
+}
+```
 
 
 ## Tareas realizadas para este proyecto.
