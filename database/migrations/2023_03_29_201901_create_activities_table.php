@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    
+
     public function up(): void
     {
         Schema::create('activities', function (Blueprint $table) {
@@ -20,7 +20,7 @@ return new class extends Migration
         });
     }
 
-    
+
     public function down(): void
     {
         Schema::dropIfExists('activities');
@@ -33,4 +33,3 @@ return new class extends Migration
 
 
 
-    
