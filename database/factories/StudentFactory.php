@@ -20,7 +20,7 @@ class StudentFactory extends Factory
         return [
             'name' => fake()->firstName,
             'last_name' => fake()->lastName,
-            'document' => fake()->unique()->numberBetween(1000000, 9999999),
+            'document' => strval(fake()->unique()->numberBetween(1000000, 9999999)),
         ];
     }
 }
