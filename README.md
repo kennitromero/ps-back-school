@@ -133,6 +133,25 @@ Esta API tendrá las siguientes funcionalidades
 }
 ```
 
+### Creacion de materia.
+
+- Creación de materia.
+```json
+
+        $Subject = Subject::create([
+            'name' => $request->input('name'),
+  },
+  "response:": {
+    "200": {
+      "data":{
+          "id": "",
+          "names": "",
+      }
+    }
+  }
+  
+
+
 
 ## Tareas realizadas para este proyecto.
 - Creación de base de datos
