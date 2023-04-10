@@ -24,4 +24,7 @@ Route::post('/1.0/students', [
 route::put('/1.0/students/{studentId}', [
     StudentController::class, 'update'
 ]);
+
 Route::post('/1.0/subjects', CreateSubjectController::class);
+
+Route::put('/1.0/subjects/{subjectId}',[UpdateSubjectController::class,'update']);
