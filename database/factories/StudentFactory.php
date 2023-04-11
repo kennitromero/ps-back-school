@@ -18,8 +18,8 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->firstName,
-            'last_name' => fake()->lastName,
+            'names' => fake()->firstName,
+            'last_names' => fake()->lastName,
             'document' => strval(fake()->unique()->numberBetween(1000000, 9999999)),
         ];
     }
