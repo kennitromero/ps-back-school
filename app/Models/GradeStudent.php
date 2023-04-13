@@ -16,7 +16,7 @@ class GradeStudent extends Model
         'group'
     ];
 
-    protected $table = 'grades_student';
+    protected $table = 'grades_students';
 
     public function grade()
     {

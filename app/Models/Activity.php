@@ -17,7 +17,7 @@ class Activity extends Model
     ];
 
     public function gradeSubject()
-    { 
+    {
         return $this->belongsTo(GradeSubject::class, 'grade_subject_id');
     }
 }
