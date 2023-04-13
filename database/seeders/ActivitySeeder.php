@@ -10,7 +10,6 @@ use \App\Models\GradeStudent;
 
 class ActivitySeeder extends Seeder
 {
-
     public function run(): void
     {
         $gradeSubject = GradeSubject::first();
@@ -19,5 +18,3 @@ class ActivitySeeder extends Seeder
         ]);
     }
 }
-
-

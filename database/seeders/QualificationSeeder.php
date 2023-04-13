@@ -5,19 +5,16 @@ namespace Database\Seeders;
 use App\Models\Activity;
 use App\Models\GradeStudent;
 use App\Models\Qualification;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class QualificationSeeder extends Seeder
 {
-
     public function run(): void
     {
+        $notaMinima = 1;
+        $notaMaxima = 5;
 
-        $nota_mínima = 1;
-        $nota_máxima = 5;
-
-        for ($i = $nota_mínima; $i <= $nota_máxima; $i++) {
+        for ($i = $notaMinima; $i <= $notaMaxima; $i++) {
             $activity = Activity::inRandomOrder()->first();
             $grade_student = GradeStudent::inRandomOrder()->first();
             Qualification::create([
@@ -25,8 +22,6 @@ class QualificationSeeder extends Seeder
                 'activity_id' => $activity->id,
                 'grade_student_id' => $grade_student->id,
             ]);
-
         }
     }
-
 }

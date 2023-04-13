@@ -20,5 +20,4 @@ class Activity extends Model
     {
         return $this->belongsTo(GradeSubject::class, 'grade_subject_id');
     }
-
 }

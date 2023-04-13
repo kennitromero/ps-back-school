@@ -3,12 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Generation;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class GenerationSeeder extends Seeder
 {
-
     public function run(): void
     {
 
@@ -18,6 +16,5 @@ class GenerationSeeder extends Seeder
                 'year'=>$i
             ]);
         }
-
     }
 }
