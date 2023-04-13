@@ -60,3 +60,39 @@ Esta API tendrá las siguientes funcionalidades
   - Crear la ruta, el controlador y la lógica respectiva
   - Agregarle validaciones respectivas según corresponda
   - Agregar pruebas end-to-end
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+
+  {
+  "request": {
+    "grade_id": "GP1",
+    "student_id": "ST1",
+    "generation_id": "GRT1"
+    "group": B
+  },
+  "response:": {
+    "200": {
+      "data"
+      "message": "tal cosa" 
+      :{
+          "id": 1,
+          "names": "Annie",
+          "lastnames": "Ruz Estrada"
+        }
+    },
+    "400":[ 
+      "error": {
+          "code": "CODE_DOCUMENT_USED",
+          "title": "Documento ya registrado",
+          "detail": "Ya existe"
+        }
+    ]
+  }
+  }
+>>>>>>> Stashed changes
