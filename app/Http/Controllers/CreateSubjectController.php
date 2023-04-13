@@ -10,10 +10,9 @@ class CreateSubjectController extends Controller
 {
     public function __invoke(Request $request): JsonResponse
     {
-        // creacion de materia
+        // creacion de asignaturas
         $subject = Subject::create([
             'name' => $request->input('name'),
-
         ]);
 
         return response()->json($subject);
