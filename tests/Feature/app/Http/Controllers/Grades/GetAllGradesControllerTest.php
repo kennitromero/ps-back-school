@@ -4,7 +4,8 @@ namespace Tests\Feature\app\Http\Controllers\Grades;
 
 use App\Models\Generation;
 use App\Models\Grade;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Models\GradeStudent;
+use App\Models\Student;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
 
@@ -13,33 +14,40 @@ class GetAllGradesControllerTest extends TestCase
 
     public function testShouldAPI10GetAllGradesResponseSuccess(): void
     {
-
-        $gradefirst = Grade::create([
-
-            'grade' => 1
+        $grade = Grade::create([
+            'grade' => 7,
         ]);
 
-        $gradesecond = Grade::create([
-
-            'grade' => 2
+        $student = Student::create([
+            'names' => 'Kennit',
+            'last_names' => 'Ruz',
+            'document' => '123321123',
         ]);
-        $response= $this->get('/api/1.0/generations/4/grades/');
+
+        $generation = Generation::create([
+            'year' => '2029',
+        ]);
+
+        $gradestudent = GradeStudent::create([
+            'group' => '2',
+            'grade_id' => $grade->id,
+            'student_id' => $student->id,
+            'generation_id' => $generation->id
+        ]);
+        $generation_id = $generation->id;
+
+        $response = $this->get('api/1.0/generations/' . intval($generation_id) . '/grades/');
 
         $response->assertJson([
-            'data' => [
+            "data" => [
                 [
-                    'id' => 4,
-                    'grade' => 2,
-                ],
-                [
-                    'id' => 4,
-                    'grade' => 3,
+                    'id' => $grade->id,
+                    'grade' => $grade->grade
                 ],
             ],
         ]);
 
         $response->assertStatus(Response::HTTP_OK);
-
     }
 
     public function testShouldAPI10GetAllGradesResponseFailThereNotGrades(): void
@@ -50,8 +58,8 @@ class GetAllGradesControllerTest extends TestCase
         $response->assertJson([
             'error' => [
                 'code' => 'CODE_THERE_ARE_NO_GRADES',
-                'title' => 'No hay estudiantes',
-                'detail' => 'No se han registrado estudiantes'
+                'title' => 'No hay grados',
+                'detail' => 'No se han registrado grados'
             ]
         ]);
         $response->assertStatus(Response::HTTP_BAD_REQUEST);

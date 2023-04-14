@@ -15,7 +15,7 @@ class GradeStudentsSeeder extends Seeder
     {
         $generation = Generation::inRandomOrder()->first();
 
-        $max_group = 20;
+        $max_group = 11;
         for ($i = 1; $i <= $max_group; $i++) {
             $grade = Grade::inRandomOrder()->first();
             $student = Student::inRandomOrder()->first();;
