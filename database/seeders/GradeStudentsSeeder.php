@@ -13,11 +13,26 @@ class GradeStudentsSeeder extends Seeder
 {
     public function run(): void
     {
-        $max_group = 5;
+        $generation = Generation::inRandomOrder()->first();
+
+        $max_group = 20;
         for ($i = 1; $i <= $max_group; $i++) {
             $grade = Grade::inRandomOrder()->first();
             $student = Student::inRandomOrder()->first();;
-            $generation = Generation::inRandomOrder()->first();
+
+            GradeStudent::create([
+                'group' => $i,
+                'grade_id'=>$grade->id,
+                'student_id'=>$student->id,
+                'generation_id'=>$generation->id
+            ]);
+        }
+
+        $generation = Generation::inRandomOrder()->first();
+
+        for ($i = 1; $i <= $max_group; $i++) {
+            $grade = Grade::inRandomOrder()->first();
+            $student = Student::inRandomOrder()->first();;
 
             GradeStudent::create([
                 'group' => $i,

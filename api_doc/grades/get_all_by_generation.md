@@ -1,4 +1,6 @@
 ## Obtener grados de una generación
+Endpoint
+`/api/1.0/generations/4/grades`
 
 No hay request
 
@@ -12,11 +14,11 @@ Respuesta 200
     "data": [
         {
             "id": 1,
-            "grade": 10
+            "grade": 10,
         },
         {
             "id": 2,
-            "grade":11
+            "grade":11,
         }
     ]
 }
